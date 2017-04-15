@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<font-mappings>
+  <font-table>
+    
+    <!-- Backwards compatibility aliases -->
+    <aliases>
+      <alias name="serif">Serif</alias>
+    </aliases>
+    <aliases>
+      <alias name="sans-serif">Sans</alias>
+    </aliases>
+    <aliases>
+      <alias name="monospace">Monospaced</alias>
+    </aliases>
+    <aliases>
+      <alias name="Helvetica">Normal</alias>
+    </aliases>
+    <aliases>
+      <alias name="Courier">Monospaced</alias>
+    </aliases>
+    <aliases>
+      <alias name="Linux Libertine">Linux Libertine</alias>
+    </aliases>
+    
+    <logical-font name="Sans">
+      <physical-font char-set="default">
+        <font-face>Linux Libertine, Helvetica, Arial Unicode MS, Tahoma, Batang, SimSun</font-face>
+      </physical-font>
+    </logical-font>
+    
+    <logical-font name="Linux Libertine">
+      <physical-font char-set="default">
+        <font-face>Linux Libertine 0</font-face>
+      </physical-font>
+    </logical-font>
+
+    <logical-font name="Serif">
+      <physical-font char-set="default">
+        <font-face>Times New Roman, Times, Arial Unicode MS, Tahoma, Batang, SimSun</font-face>
+      </physical-font>
+    </logical-font>
+
+    <logical-font name="Monospaced">
+      <physical-font char-set="default">
+        <font-face>Ubuntu Mono</font-face>
+      </physical-font>
+    </logical-font>
+  </font-table>
+  
+</font-mappings>

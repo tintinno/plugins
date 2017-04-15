@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin id="com.tintinno.rpdf2">
+  <require plugin="org.dita.pdf2"/>
+  <feature extension="dita.conductor.transtype.check" value="rpdf2"/>
+  <feature extension="dita.transtype.print" value="rpdf2"/>
+  <feature extension="dita.conductor.target.relative" file="integrator.xml"/>
+</plugin>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<font-mappings>
+  <font-table>
+    
+    <!-- Backwards compatibility aliases -->
+    <aliases>
+      <alias name="serif">Serif</alias>
+    </aliases>
+    <aliases>
+      <alias name="sans-serif">Sans</alias>
+    </aliases>
+    <aliases>
+      <alias name="monospace">Monospaced</alias>
+    </aliases>
+    <aliases>
+      <alias name="Helvetica">Normal</alias>
+    </aliases>
+    <aliases>
+      <alias name="Ubuntu">Ubuntu</alias>
+    </aliases>
+    <aliases>
+      <alias name="Lora">Lora</alias>
+    </aliases>
+    
+    <logical-font name="Lora">
+      <physical-font char-set="default">
+        <font-face>Lora</font-face>
+      </physical-font>
+    </logical-font>
+    
+    <logical-font name="Ubuntu">
+      <physical-font char-set="default">
+        <font-face>Ubuntu</font-face>
+      </physical-font>
+    </logical-font>
+    
+    <logical-font name="Sans">
+      <physical-font char-set="default">
+        <font-face>Helvetica, Arial Unicode MS, Tahoma, Batang, SimSun</font-face>
+      </physical-font>
+    </logical-font>
+
+    <logical-font name="Serif">
+      <physical-font char-set="default">
+        <font-face>Lora, Times New Roman, Times, Arial Unicode MS, Tahoma, Batang, SimSun</font-face>
+      </physical-font>
+    </logical-font>
+
+  </font-table>
+</font-mappings>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project name="com.tintinno.rpdf2">
+  <target name="dita2rpdf2.init">
+    <property name="customization.dir" location="${dita.plugin.com.tintinno.rpdf2.dir}/cfg"/>
+  </target>
+  <target name="dita2rpdf2" depends="dita2rpdf2.init, dita2pdf2"/>
+</project>
