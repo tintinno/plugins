@@ -32,7 +32,9 @@ cd dita-ot/bin/
 ./dita --install
 ```
 
-6. Transform.
+6. Install [Lora](https://fonts.google.com/specimen/Lora).
+
+7. Transform.
 
 ```
 ./dita -i <input file> -f rpdf
