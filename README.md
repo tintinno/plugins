@@ -1,6 +1,6 @@
 These are two experimental plugins to the DITA-OT.
 
-1. Download the latest DITA-OT
+1. Download the latest DITA-OT.
 
 ```
 wget https://github.com/dita-ot/dita-ot/releases/download/2.4.5/dita-ot-2.4.5.zip
