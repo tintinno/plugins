@@ -32,4 +32,9 @@
   <xsl:attribute name="color">white</xsl:attribute> 
 </xsl:attribute-set>
 
+<xsl:attribute-set name="my-list">
+  <xsl:attribute name="padding">0pt</xsl:attribute> 
+  <xsl:attribute name="margin">0pt</xsl:attribute> 
+</xsl:attribute-set>
+
 </xsl:stylesheet>

@@ -119,7 +119,7 @@
 	<fo:table-column column-width="70%"/>
 	 <fo:table-body>
 	  <xsl:for-each select=".">
-      <fo:table-row margin="0" padding="0">
+      <fo:table-row margin-bottom="5px">
 		<fo:table-cell margin="0" padding="0"> 
 		 <fo:block font-weight="bold">
 		  <xsl:value-of select="substring-before(text(),'|')"/>
@@ -133,10 +133,20 @@
 		</fo:table-cell> 
 		<fo:table-cell margin="0" padding="0">
 		  <xsl:for-each select="./following-sibling::ul[1]/li">
-		    <fo:block>
-			  <fo:inline>•  </fo:inline>
-			  <xsl:value-of select="."/>
-			</fo:block>
+			<fo:list-block>
+			 <fo:list-item>
+			  <fo:list-item-label end-indent="label-end()">
+			   <fo:block text-align="right">
+				<fo:inline>•</fo:inline>
+			   </fo:block>
+			  </fo:list-item-label>
+			  <fo:list-item-body start-indent="body-start()">
+			   <fo:block>
+				  <xsl:value-of select="."/>
+				</fo:block>
+			  </fo:list-item-body>
+			 </fo:list-item>
+			</fo:list-block>
 		  </xsl:for-each>
 		</fo:table-cell>
       </fo:table-row> 
