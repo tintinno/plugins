@@ -1,4 +1,4 @@
-These are two experimental plugins to the DITA-OT.
+Two experimental plugins to the DITA-OT.
 
 1. Download the DITA-OT v2.4.5.
 
@@ -6,7 +6,7 @@ These are two experimental plugins to the DITA-OT.
 wget https://github.com/dita-ot/dita-ot/releases/download/2.4.5/dita-ot-2.4.5.zip
 ```
 
-2. Unzip the file.
+2. Unzip and rename the file.
 
 ```
 unzip dita-ot-2.4.5.zip
@@ -22,7 +22,8 @@ git clone https://github.com/tintinno/plugins
 4. Copy the folders into the plugins directory.	
 
 ```
-mv plugins/com.tintinno.rpdf* dita-ot/plugins/
+mv plugins/com.tintinno.rpdf dita-ot/plugins/
+mv plugins/com.tintinno.rpdf2 dita-ot/plugins/
 ```
 
 5. Install the plugins.
