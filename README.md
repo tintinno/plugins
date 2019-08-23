@@ -3,14 +3,14 @@ Two experimental plugins to the DITA-OT.
 1. Download the DITA-OT v2.4.5.
 
 ```
-wget https://github.com/dita-ot/dita-ot/releases/download/2.4.5/dita-ot-2.4.5.zip
+wget https://github.com/dita-ot/dita-ot/releases/download/3.3.3/dita-ot-3.3.3.zip
 ```
 
 2. Unzip and rename the file.
 
 ```
-unzip dita-ot-2.4.5.zip
-mv dita-2.4.5 dita-ot
+unzip dita-ot-3.3.3.zip
+mv dita-3.3.3 dita-ot
 ```
 
 3. Clone this repository.
