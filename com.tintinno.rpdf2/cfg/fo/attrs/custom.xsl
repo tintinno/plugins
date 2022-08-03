@@ -18,6 +18,11 @@
     <xsl:attribute name="margin-top">20px</xsl:attribute>
     <xsl:attribute name="font-weight">bold</xsl:attribute>
   </xsl:attribute-set>
+  
+  <xsl:attribute-set name="photo-attrs">
+    <xsl:attribute name="text-align">right</xsl:attribute>
+    <xsl:attribute name="width">20px</xsl:attribute>
+  </xsl:attribute-set>
 
 <xsl:attribute-set name="my-footer"> 
   <xsl:attribute name="text-align">right</xsl:attribute> 
@@ -29,6 +34,7 @@
 </xsl:attribute-set>
 
 <xsl:attribute-set name="my-header">
+ <!-- Is it a subliminal message if they can't read it? -->
   <xsl:attribute name="color">white</xsl:attribute> 
 </xsl:attribute-set>
 
