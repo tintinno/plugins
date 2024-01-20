@@ -15,13 +15,24 @@
 
   <xsl:attribute-set name="section-heading">
     <xsl:attribute name="text-align">center</xsl:attribute>
-    <xsl:attribute name="margin-top">20px</xsl:attribute>
+    <xsl:attribute name="margin-top">15px</xsl:attribute>
+    <xsl:attribute name="margin-bottom">5px</xsl:attribute>
     <xsl:attribute name="font-weight">bold</xsl:attribute>
   </xsl:attribute-set>
   
   <xsl:attribute-set name="photo-attrs">
     <xsl:attribute name="text-align">right</xsl:attribute>
     <xsl:attribute name="width">20px</xsl:attribute>
+  </xsl:attribute-set>
+  
+  <xsl:attribute-set name="no-margin-no-pad">
+    <xsl:attribute name="margin">0</xsl:attribute>
+    <xsl:attribute name="padding">0</xsl:attribute>
+  </xsl:attribute-set>
+
+  <xsl:attribute-set name="my-experience">
+    <xsl:attribute name="margin">0</xsl:attribute>
+    <xsl:attribute name="padding">0</xsl:attribute>
   </xsl:attribute-set>
 
 <xsl:attribute-set name="my-footer"> 

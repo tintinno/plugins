@@ -12,27 +12,43 @@
     </fo:block>
   </xsl:template>
 
-  <!-- apply the template for concept/shortdesc -->
-  <xsl:template match="/concept/shortdesc">
-    <fo:block xsl:use-attribute-sets="center">
-      <xsl:apply-templates/>
+  <!-- apply the template for info section -->
+  <xsl:template match="//section[@id = 'info']">
+    <fo:block xsl:use-attribute-sets="center" margin-top="5px">
+      <xsl:text>Phone: </xsl:text><xsl:value-of select=".//p[@id='phone']"/>
+      <xsl:text>&#160;&#160;~&#160;&#160;</xsl:text>
+      <xsl:text>Email: </xsl:text><xsl:value-of select=".//p[@id='email']"/>
+      <xsl:text>&#160;&#160;~&#160;&#160;</xsl:text>
+      <!-- insert a link to blog -->
+      <xsl:variable name="bloglink" select=".//p[@id='blog']/text()"/>
+      <fo:basic-link color="#3366cc" external-destination="url({$bloglink})">
+         <xsl:text>Blog</xsl:text>
+      </fo:basic-link>
+      <xsl:text>&#160;&#160;~&#160;&#160;</xsl:text>
+      <!-- insert a link to github -->
+      <xsl:variable name="githublink" select=".//p[@id='github']/text()"/>
+      <fo:basic-link color="#3366cc" external-destination="url({$githublink})">
+         <xsl:text>Github</xsl:text>
+      </fo:basic-link>
     </fo:block>
   </xsl:template>
   
   <!-- apply the template for section/title -->
   <xsl:template match="//section/title">
     <fo:block xsl:use-attribute-sets="section-heading">
-      <xsl:apply-templates/>
+    <!-- pilcrows are a ancient and respectable typographical mark 
+      <xsl:text>&#182;&#160;&#160;&#160;</xsl:text>
+      -->
+        <xsl:value-of select="text()"/>
     </fo:block>
   </xsl:template>
   
-  <!-- apply the template for photo 
+  <!-- apply the template for photo -->
   <xsl:template match="//section[@id = 'photo']">
     <fo:block xsl:use-attribute-sets="photo-attrs">
       <xsl:apply-templates/>
     </fo:block>
   </xsl:template>
-  -->
 
   <!-- edit footer to insert link to github -->
   <xsl:template name="insertBodyOddFooter"> 
@@ -54,15 +70,15 @@
 
   <!-- template for table bodies -->
   <xsl:template name="table-body">
-	<fo:table-body>
+	<fo:table-body xsl:use-attribute-sets="no-margin-no-pad">
 	<xsl:for-each select="li">
-	  <fo:table-row margin="0" padding="0">
-	   <fo:table-cell margin="0" padding="0">
+	  <fo:table-row xsl:use-attribute-sets="no-margin-no-pad">
+	   <fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 		<fo:block>
 		 <xsl:value-of select="substring-before(text(),'|')"/>
 		</fo:block>
 	   </fo:table-cell>
-	   <fo:table-cell margin="0" padding="0">
+	   <fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 		<fo:block>
          <xsl:choose>
            <xsl:when test="contains( substring-before( substring-after(text(),'|') , '|'), ','  )">
@@ -80,7 +96,32 @@
          </xsl:choose>
 		</fo:block>
 	   </fo:table-cell>
-	   <fo:table-cell margin="0" padding="0">
+	   <fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
+		<fo:block>
+		 <xsl:value-of select="substring-after( substring-after(text(),'|') , '|')"/>
+		</fo:block>
+	   </fo:table-cell>
+	  </fo:table-row>
+	</xsl:for-each>
+	</fo:table-body>
+  </xsl:template>
+  
+  <!-- template for skills -->
+  <xsl:template name="skillz-table">
+	<fo:table-body>
+	<xsl:for-each select="li">
+	  <fo:table-row xsl:use-attribute-sets="no-margin-no-pad">
+	   <fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
+		<fo:block>
+		 <xsl:value-of select="substring-before(text(),'|')"/>
+		</fo:block>
+	   </fo:table-cell>
+	   <fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
+		<fo:block>
+		  <xsl:value-of select="substring-before( substring-after(text(),'|') , '|')"/>
+		</fo:block>
+	   </fo:table-cell>
+	   <fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 		<fo:block>
 		 <xsl:value-of select="substring-after( substring-after(text(),'|') , '|')"/>
 		</fo:block>
@@ -91,17 +132,24 @@
   </xsl:template>
   
   <!-- edit tables for 'writing samples' section -->
+  <xsl:template match="//section[@id='skills']/ul">
+    <fo:table xsl:use-attribute-sets="no-margin-no-pad">
+	  <xsl:call-template name="skillz-table"/>
+    </fo:table> 
+  </xsl:template>
+  
+  <!-- edit tables for 'writing samples' section -->
   <xsl:template match="//section[@id='writingsamples']/ul">
-    <fo:table margin-top="12px" margin-left="5px" padding-left="0">
+    <fo:table xsl:use-attribute-sets="no-margin-no-pad">
 	<fo:table-header>
-	 <fo:table-row margin="0" padding="0">
-		<fo:table-cell margin="0" padding="0">
+	 <fo:table-row xsl:use-attribute-sets="no-margin-no-pad">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Product</fo:block>
 		</fo:table-cell>
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Document or Section</fo:block>
 		</fo:table-cell>
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Year</fo:block>
 		</fo:table-cell>
 	 </fo:table-row>
@@ -112,16 +160,16 @@
 
   <!-- edit tables for 'independent coursework' section -->
   <xsl:template match="//section[@id='coursework']/ul">
-    <fo:table margin-top="12px" margin-left="5px" padding-left="0">
+    <fo:table xsl:use-attribute-sets="no-margin-no-pad">
 	<fo:table-header>
-	 <fo:table-row margin="0" padding="0">
-		<fo:table-cell margin="0" padding="0">
+	 <fo:table-row xsl:use-attribute-sets="no-margin-no-pad">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Class</fo:block>
 		</fo:table-cell>
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Institution</fo:block>
 		</fo:table-cell>
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Semester</fo:block>
 		</fo:table-cell>
 	 </fo:table-row>
@@ -132,16 +180,16 @@
 
   <!-- edit tables for 'education' section -->
   <xsl:template match="//section[@id='education']/ul">
-    <fo:table margin-top="12px" margin-left="5px" padding-left="0">
+    <fo:table xsl:use-attribute-sets="no-margin-no-pad">
 	<fo:table-header>
-	 <fo:table-row margin="0" padding="0">
-		<fo:table-cell margin="0" padding="0">
+	 <fo:table-row xsl:use-attribute-sets="no-margin-no-pad">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Degree</fo:block>
 		</fo:table-cell>
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Institution</fo:block>
 		</fo:table-cell>
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 			<fo:block font-weight="bold">Years</fo:block>
 		</fo:table-cell>
 	 </fo:table-row>
@@ -152,24 +200,24 @@
 
   <!-- edit tables for 'experience' section -->
   <xsl:template match="//section[@id='experience']/p">
-    <fo:table margin-top="12px" margin-left="5px" padding-left="0">
+    <fo:table xsl:use-attribute-sets="my-experience">
 	<fo:table-column column-width="30%"/>
 	<fo:table-column column-width="70%"/>
 	 <fo:table-body>
-	  <xsl:for-each select=".">
-      <fo:table-row margin-bottom="5px">
-		<fo:table-cell margin="0" padding="0"> 
+     <xsl:for-each select=".">
+      <fo:table-row>
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 		 <fo:block font-weight="bold">
 		  <xsl:value-of select="substring-before(text(),'|')"/>
 		 </fo:block>
 		 <fo:block>
 		   <xsl:value-of select="substring-before( substring-after(text(),'|') , '|')"/>
 		 </fo:block>
-		 <fo:block padding-bottom="5px">
+		 <fo:block>
 		   <xsl:value-of select="substring-after( substring-after(text(),'|') , '|')"/>
 		 </fo:block>
 		</fo:table-cell> 
-		<fo:table-cell margin="0" padding="0">
+		<fo:table-cell xsl:use-attribute-sets="no-margin-no-pad">
 		  <xsl:for-each select="./following-sibling::ul[1]/li">
 			<fo:list-block>
 			 <fo:list-item>
@@ -188,7 +236,18 @@
 		  </xsl:for-each>
 		</fo:table-cell>
       </fo:table-row> 
-     </xsl:for-each>
+     <!-- if we have another item in our list, add an empty row for space -->
+     <xsl:if test="./following-sibling::p">
+      <fo:table-row padding="0" margin="0">
+       <fo:table-cell>
+         <fo:block>
+           <xsl:text>&#160;</xsl:text>
+         </fo:block>
+       </fo:table-cell>
+      </fo:table-row> 
+     </xsl:if>
+     <!-- end if -->
+      </xsl:for-each>
 	 </fo:table-body>
     </fo:table> 
   </xsl:template>
